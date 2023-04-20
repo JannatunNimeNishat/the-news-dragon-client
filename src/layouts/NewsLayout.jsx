@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '../pages/Shared/Header/Header';
 import { Col, Container, Row } from 'react-bootstrap';
 import Footer from '../pages/Shared/Footer/Footer';
+import { Outlet } from 'react-router-dom';
+import RightNav from '../pages/Shared/RightNav/RightNav';
 
 const NewsLayout = () => {
     return (
@@ -10,7 +12,7 @@ const NewsLayout = () => {
             <Container>
                 <Row>
                     <Col md={9}>
-                        <Outlet></Outlet>
+                       <Outlet></Outlet>
                     </Col>
                     <Col md={3}>
                         <RightNav></RightNav>
