@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../assets/logo.png'
 //date and time
 import moment from 'moment/moment';
 //marquee
 import Marquee from "react-fast-marquee";
 
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Button, Container } from 'react-bootstrap';
+
+
+
 const Header = () => {
+   
+
+
     return (
         <Container className='mt-4'>
             <div className='text-center'>
@@ -23,28 +28,7 @@ const Header = () => {
                 </Marquee>
             </div>
             {/* navBar */}
-            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-                <Container>
-                    {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="mx-auto">
-                            <Nav.Link href="#features">
-                                <Link to='/'>Home</Link>
-                            </Nav.Link>
-                            <Nav.Link href="#pricing">About</Nav.Link>
-                            <Nav.Link href="#carrier">Career</Nav.Link>
-
-                        </Nav>
-                        <Nav>
-                            <Nav.Link href="#deets">Profile</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                <Button variant="secondary">Login</Button>
-                            </Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+           
 
         </Container>
     );
