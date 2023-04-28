@@ -11,9 +11,8 @@ const Login = () => {
     const location = useLocation()
     //redirect user if he comes from private route and if he directly come to login
     const from = location.state?.form?.pathname || '/category/0'
+    console.log(from);
 
-
-    console.log(location.state.form.pathname);
     const handleLogIn = (event) => {
         event.preventDefault();
         const form = event.target;

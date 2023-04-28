@@ -1,13 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Await, Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
-    const { createUser,updateUser } = useContext(AuthContext)
+    const { createUser, updateUser } = useContext(AuthContext)
+    const [accepted, setAccepted] = useState(false)
 
-
+    const handleTerms = (event) => {
+        setAccepted(event.target.checked);
+    }
     const handleRegister = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -33,17 +36,17 @@ const Register = () => {
                     .catch(error => {
                         console.log(error.message);
                     }) */
-                    updateUser(name,photo)
-                    .then(()=>{
+                updateUser(name, photo)
+                    .then(() => {
 
                     })
-                    .catch(error=>{
+                    .catch(error => {
                         console.log(error.message);
                     })
 
 
                 console.log(createdUser);
-                
+
             })
             .catch(error => {
                 console.log(error.message);
@@ -75,12 +78,22 @@ const Register = () => {
                     <Form.Control type="password" name='password' placeholder="Password" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" name='accept' label="Accept Terms and Conditions" />
+                    <Form.Check
+                        onClick={handleTerms}
+                        type="checkbox"
+                        name='accept'
+                        label={<>Accept <Link to='/terms'>Terms and Conditions</Link></>} />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button variant="primary"
+                    type="submit"
+                    //
+                    disabled={!accepted}
+
+                >
                     Register
                 </Button>
+
                 <br />
                 <Form.Text className="text-secondary">
                     Already have an Account? <Link to='/login'>Login</Link>
