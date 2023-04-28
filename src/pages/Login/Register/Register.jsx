@@ -43,6 +43,7 @@ const Register = () => {
 
 
                 console.log(createdUser);
+                
             })
             .catch(error => {
                 console.log(error.message);
