@@ -3,8 +3,11 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { Await, Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import useTitle from '../../../hooks/useTitle';
 
 const Register = () => {
+    //dynamic title
+    useTitle('register')
     const { createUser, updateUser } = useContext(AuthContext)
     const [accepted, setAccepted] = useState(false)
 
